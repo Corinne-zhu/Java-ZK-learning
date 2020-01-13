@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+	<session-config>
+		<!-- 可用 timer 來保持 session 存活 -->
+		<timer-keep-alive>true</timer-keep-alive>
+	</session-config>
+	<listener>
+		<listener-class>com.tp.training.listener.SysListener</listener-class>
+	</listener>
+
+
+</zk>

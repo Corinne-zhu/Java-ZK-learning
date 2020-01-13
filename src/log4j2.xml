@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="[%d{yyyyMMdd HH:mm:ss}] %-5p %c
+[%X{loginId}] %t %n - %m%n" />
+		</Console>
+		<!--${sys:catalina.home}指的是tomcat安裝位置(在開發環境中也是) -->
+		<!-- <RollingFile name="RollingFile" fileName="${sys:catalina.home}/logs/training.log" 
+			filePattern="${sys:catalina.home}/logs/training/$${date:yyyy-MM}/training-%d{yyyyMMd 
+			d}-%i.log.gz"> <PatternLayout> <Pattern>[%d{yyyyMMdd HH:mm:ss}] %-5p %c [%X{loginId}] 
+			%t %n - %m%n </Pattern> </PatternLayout> <Policies> <TimeBasedTriggeringPolicy 
+			/> <SizeBasedTriggeringPolicy size="1 MB" /> </Policies> </RollingFile> -->
+		<!-- <SMTP name="Mail" subject="[Training-${hostName}]%c{1}-%.30m" smtpHost="172.17.0.17" 
+			from="weifang_zhu@bao-jin.com.cn" to="weifang_zhu@bao-jin.com.cn,jace.yang@tienpou.com"> 
+			</SMTP> -->
+	</Appenders>
+	<Loggers>
+		<Logger name="com.tp" level="debug">
+		</Logger>
+		<Root level="warn">
+			<AppenderRef ref="Console" />
+			<!-- <AppenderRef ref="RollingFile" /> <AppenderRef ref="Mail" level="error" 
+				/> -->
+		</Root>
+	</Loggers>
+</Configuration>

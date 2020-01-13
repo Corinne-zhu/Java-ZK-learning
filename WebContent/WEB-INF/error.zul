@@ -1,0 +1,2 @@
+<?page contentType="text/html;charset=UTF-8"?>
+<include src="~./zul/baselib/error.zul" />
