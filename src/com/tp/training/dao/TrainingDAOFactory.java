@@ -8,13 +8,13 @@ public class TrainingDAOFactory {
 	private static final StyleDAO styleDAO = new StyleDAO();
 
 
-	public static BrandDAO getBranddao() {
+	public static BrandDAO getBrandDao() {
 		return brandDAO;
 	}
-	public static BrandSeasonDAO getBrandseasondao() {
+	public static BrandSeasonDAO getBrandseasonDao() {
 		return brandSeasonDAO;
 	}
-	public static StyleDAO getStyledao() {
+	public static StyleDAO getStyleDao() {
 		return styleDAO;
 	}
 

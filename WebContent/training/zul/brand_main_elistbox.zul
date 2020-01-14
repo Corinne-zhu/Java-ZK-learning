@@ -1,0 +1,71 @@
+<?page contentType="text/html;charset=UTF-8"?>
+<window id="mainWin" width="100%" height="100%"
+	apply="com.tp.training.ctrler.BrandMainCtrl">
+	<panel height="100%">
+		<caption>
+			<label mlkey="traning.label.brand" multiline="true" />
+			<editbuttons id="masterEbtns" btns="AMDSC"></editbuttons>
+		</caption>
+		<panelchildren>
+			<elistbox id="masterLbox" boundBtns="${masterEbtns}"
+				span="true" multiple="true" checkmark="true" showRowNum="true"
+				vflex="1">
+				<listhead>
+					<listheader width="40px" />
+					<listheader width="100px" sort="auto( BRAND_NO )"
+						mlkey="traning.label.brandNo" />
+					<listheader width="100px" sort="auto( BRAND_CODE )"
+						mlkey="traning.label.brandCode" />
+					<listheader width=" 100 px "
+						mlkey="traning.label.brandName" sort="auto( BRAND_NAME )" />
+					<listheader width="100px" sort="auto( IS_VIP )"
+						mlkey="traning.label.brandIsVip" />
+					<listheader width="50px" sort="auto( CREATE_BY )"
+						mlkey="baselib.col.creator" />
+					<listheader width="115px" sort="auto( CREATE_DATE )"
+						mlkey="baselib.col.createDate" />
+					<listheader width="50px" sort="auto( MODIFY_BY )"
+						mlkey="baselib.col.modifier" />
+					<listheader width="115px" sort="auto( MODIFY_DATE )"
+						mlkey="baselib.col.modifyDate" />
+				</listhead>
+
+				<template name="model">
+					<listitem>
+						<listcell />
+						<listcell>
+							<textbox fld="BRAND_NO" upper="true"
+								insertOnly="true" requiredForBean="true" />
+						</listcell>
+
+						<listcell>
+							<textbox fld="BRAND_CODE" upper="true"
+								maxlength="2" insertOnly="true" requiredForBean="true" />
+						</listcell>
+
+						<listcell>
+							<textbox fld="BRAND_NAME" />
+						</listcell>
+
+						<listcell>
+							<checkbox fld="IS_VIP" />
+						</listcell>
+
+						<listcell>
+							<userlabel fld="CREATE_BY" />
+						</listcell>
+						<listcell>
+							<label fld="CREATE_DATE" />
+						</listcell>
+						<listcell>
+							<userlabel fld="MODIFY_BY" />
+						</listcell>
+						<listcell>
+							<label fld="MODIFY_DATE" />
+						</listcell>
+					</listitem>
+				</template>
+			</elistbox>
+		</panelchildren>
+	</panel>
+</window>
