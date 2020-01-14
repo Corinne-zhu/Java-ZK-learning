@@ -1,11 +1,15 @@
 package com.tp.training.listener;
 
+import java.net.URL;
+
 import org.zkoss.zk.ui.WebApp;
 import org.zkoss.zk.ui.util.WebAppCleanup;
 import org.zkoss.zk.ui.util.WebAppInit;
 
+import com.tp.baselib.model.Schemas;
 import com.tp.baselib.util.DbConnHelper;
 import com.tp.baselib.util.DbConnHelper.HikariConnProvider;
+import com.tp.baselib.util.ResourceUtils;
 import com.tp.webplugins.admin.util.AdminZkListener;
 
 public class SysListener implements WebAppInit, WebAppCleanup {
@@ -23,8 +27,8 @@ public class SysListener implements WebAppInit, WebAppCleanup {
 		HikariConnProvider.loadConfig("JavaTraining", configPath);
 
 //		載入 schemas 設定
-//		URL schemasUrl = ResourceUtils.getResource("/schemas_training.txt");
-//		Schemas.loadSchemas(schemasUrl);
+		URL schemasUrl = ResourceUtils.getResource("/schemas.txt");
+		Schemas.loadSchemas(schemasUrl);
 
 		try {
 			AdminZkListener.init(wapp);
