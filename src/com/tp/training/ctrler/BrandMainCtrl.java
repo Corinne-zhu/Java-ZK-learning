@@ -2,6 +2,7 @@ package com.tp.training.ctrler;
 
 import org.zkoss.zk.ui.select.annotation.Wire;
 
+import com.tp.baselib.model.MapBean;
 import com.tp.baselib.model.MapBeanResultList;
 import com.tp.baselib.zul.Elistbox;
 import com.tp.baselib.zul.ListModelList;
@@ -20,9 +21,21 @@ public class BrandMainCtrl extends TrainingBaseComposer {
 		this.masterLbox.setActionHandler(new MasterActionHandler());
 
 		// 默認畫面中呈現所有資料
-		MapBeanResultList data = TrainingDAOFactory.getBrandDao().brandAll();
-		this.masterLbox.setModel(new ListModelList<>(data));
+//		MapBeanResultList data = TrainingDAOFactory.getBrandDao().brandAll();
+//		this.masterLbox.setModel(new ListModelList<>(data));
 
+		// 畫面打開不顯示任何資料
+		this.masterLbox.setModel(new ListModelList<>());
+	}
+
+	// 查詢功能
+	@Override
+	protected boolean onQuery(MapBean bean) throws Exception {
+		String brandNo = bean.get("BRAND_NO");
+		String brandNm = bean.get("BRAND_NAME");
+		MapBeanResultList data = TrainingDAOFactory.getBrandDao().queryByBrand(brandNo, brandNm);
+		this.masterLbox.setModel(new ListModelList<>(data));
+		return true;
 	}
 
 	private class MasterActionHandler extends TrainingGeneralElistboxActionHandler {
