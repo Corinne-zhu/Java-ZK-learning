@@ -38,6 +38,8 @@ public class BrandMainCtrl extends TrainingBaseComposer {
 		return true;
 	}
 
+	//listbox 中的資料顯示在畫面中
+
 	private class MasterActionHandler extends TrainingGeneralElistboxActionHandler {
 
 		public MasterActionHandler() {
