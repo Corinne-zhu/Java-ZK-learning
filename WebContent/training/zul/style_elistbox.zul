@@ -1,0 +1,140 @@
+<?page  contentType="text/html;charset=UTF-8"?>
+
+<window id="mainWin" width="100%" height="100%"
+	apply="com.tp.training.ctrler.StyleElist">
+	<panel height="100%">
+		<caption>
+			<label mlkey="traning.label.style" multiline="true" />
+			<editbuttons id="masterEbtns" btns="AMDSC"></editbuttons>
+		</caption>
+
+		<panelchildren>
+			<elistbox id="masterLbox" boundBtns="${masterEbtns}"
+				span="true" multiple="true" checkmark="true" showRowNum="true"
+				vflex="1">
+				<listhead>
+					<listheader width="60px" />
+
+					<listheader width="150px"
+						mlkey="traning.label.brandNo" />
+
+					<listheader width="100px"
+						mlkey="traning.label.styleYear" />
+
+					<listheader width="100px"
+						mlkey="traning.label.styleSeason" />
+
+					<listheader width="150px"
+						mlkey="traning.label.styleNo" />
+
+					<listheader width="200px"
+						mlkey="traning.label.styleName" />
+
+					<listheader width="200px"
+						mlkey="traning.label.styleNameEn" />
+
+					<listheader width="150px"
+						mlkey="traning.label.stylePhase" />
+
+					<listheader width="200px"
+						mlkey="traning.label.styleGender" />
+
+					<listheader width="100px"
+						mlkey="traning.label.styleInvalid" />
+
+					<listheader width="120px"
+						mlkey="baselib.col.creator" />
+
+					<listheader width="120px"
+						mlkey="baselib.col.createDate" />
+
+					<listheader width="120px"
+						mlkey="baselib.col.modifier" />
+
+					<listheader width="120px"
+						mlkey="baselib.col.modifyDate" />
+				</listhead>
+
+				<template name="model">
+					<listitem>
+						<listcell />
+
+						<listcell>
+							<combobox fld="BRAND_ID"
+								forward="onSelect = masterLbox.onSelectBrand"
+								requiredForBean="true" insertOnly="true">
+								<template name="brandModel">
+									<comboitem label="${each.BRAND_NO}"
+										value="${each.BRAND_ID}" description="${each.BRAND_NAME}" />
+								</template>
+							</combobox>
+						</listcell>
+
+						<listcell>
+							<combobox fld="STYLE_YEAR" id="yearCombo"
+								requiredForBean="true" insertOnly="true">
+							</combobox>
+						</listcell>
+
+						<listcell>
+							<combobox fld="SEASON_NO" id="seasonCombo"
+								requiredForBean="true" insertOnly="true">
+								<template name="seasonModel">
+									<comboitem label="${each.SEASON_NO}"
+										value="${each.SEASON_NO}" description="${each.SEASON_DESC}" />
+								</template>
+							</combobox>
+						</listcell>
+
+						<listcell>
+							<textbox fld="STYLE_NO" upper="true"
+								insertOnly="true" requiredForBean="true" />
+						</listcell>
+
+						<listcell>
+							<textbox fld="STYLE_NAME"
+								requiredForBean="true" />
+						</listcell>
+
+						<listcell>
+							<textbox fld="STYLE_NAME_EN" />
+						</listcell>
+
+						<listcell>
+							<textbox fld="PHASE" />
+						</listcell>
+
+						<listcell>
+							<radiogroup fld="STYLE_GENDER">
+								<radio value="M"
+									mlkey="traning.label.styleGenderMale" />
+								<radio value="F"
+									mlkey="traning.label.styleGenderFemale" />
+							</radiogroup>
+						</listcell>
+
+						<listcell>
+							<datebox fld="INVALID_DATE" />
+						</listcell>
+
+						<listcell>
+							<userlabel fld="CREATE_BY" />
+						</listcell>
+
+						<listcell>
+							<userlabel fld="CREATE_DATE" />
+						</listcell>
+
+						<listcell>
+							<userlabel fld="MODIFY_BY" />
+						</listcell>
+
+						<listcell>
+							<userlabel fld="MODIFY_DATE" />
+						</listcell>
+					</listitem>
+				</template>
+			</elistbox>
+		</panelchildren>
+	</panel>
+</window>

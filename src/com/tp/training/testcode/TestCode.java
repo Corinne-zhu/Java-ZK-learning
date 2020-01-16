@@ -21,9 +21,9 @@ public class TestCode {
 		Schemas.loadSchemas(schemasUrl);
 
 		// 測試DAO
-		MapBeanResultList data = TrainingDAOFactory.getBrandDao().queryByBrand("S", "");
+		MapBeanResultList data = TrainingDAOFactory.getBrandDao().brandAll();
 		for (int i = 0; i < data.size(); i++) {
-			System.out.println("Brand NO: " + data.get(i).get("BRAND_NO"));
+			System.out.println("Brand NO: " + data.get(i).get("BRAND_NO") + "\t" + "Brand ID: " + data.get(i).get("BRAND_ID"));
 		}
 	}
 

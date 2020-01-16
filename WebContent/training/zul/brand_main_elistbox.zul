@@ -1,6 +1,6 @@
 <?page contentType="text/html;charset=UTF-8"?>
 <window id="mainWin" width="100%" height="100%"
-	apply="com.tp.training.ctrler.BrandMainCtrl">
+	apply="com.tp.training.ctrler.BrandMainElist">
 	<panel height="100%">
 		<caption>
 			<label mlkey="traning.label.brand" multiline="true" />
@@ -45,7 +45,7 @@
 						mlkey="traning.label.brandNo" />
 					<listheader width="100px" sort="auto( BRAND_CODE )"
 						mlkey="traning.label.brandCode" />
-					<listheader width=" 100 px "
+					<listheader width=" 100px "
 						mlkey="traning.label.brandName" sort="auto( BRAND_NAME )" />
 					<listheader width="100px" sort="auto( IS_VIP )"
 						mlkey="traning.label.brandIsVip" />

@@ -52,6 +52,11 @@ public class BrandMainEgrid extends TrainingBaseComposer {
 			super(TrainingDAOFactory.getBrandDao(), false);
 		}
 
+		//唯一性管控
+		@Override
+		protected String[][] getUkColNames() {
+			return new String[][] {{"BRAND_NO"}};
+		}
 	}
 
 }

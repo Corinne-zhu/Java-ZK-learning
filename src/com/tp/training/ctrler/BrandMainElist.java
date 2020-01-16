@@ -11,7 +11,7 @@ import com.tp.training.dao.TrainingDAOFactory;
 import com.tp.training.zul.TrainingBaseComposer;
 import com.tp.training.zul.TrainingGeneralElistboxActionHandler;
 
-public class BrandMainCtrl extends TrainingBaseComposer {
+public class BrandMainElist extends TrainingBaseComposer {
 	@Wire
 	private Elistbox masterLbox;
 
@@ -45,5 +45,12 @@ public class BrandMainCtrl extends TrainingBaseComposer {
 		public MasterActionHandler() {
 			super(TrainingDAOFactory.getBrandDao(), false);
 		}
+
+		//唯一性管控
+		@Override
+		protected String[][] getUkColNames() {
+			return new String[][] {{"BRAND_NO"}};
+		}
+
 	}
 }
