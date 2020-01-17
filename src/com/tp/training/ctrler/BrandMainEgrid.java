@@ -47,15 +47,16 @@ public class BrandMainEgrid extends TrainingBaseComposer {
 		this.masterGrid.setBean(bean);
 	}
 
+	// 主檔的ActionHandler
 	private class MasterActionHandler extends TrainingGeneralListboxAndEgridActionHandler {
 		public MasterActionHandler() {
 			super(TrainingDAOFactory.getBrandDao(), false);
 		}
 
-		//唯一性管控
+		// 唯一性管控
 		@Override
 		protected String[][] getUkColNames() {
-			return new String[][] {{"BRAND_NO"}};
+			return new String[][] { { "BRAND_NO" } };
 		}
 	}
 

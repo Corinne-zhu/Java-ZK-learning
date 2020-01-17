@@ -1,0 +1,220 @@
+<?page contentType="text/html;charset=UTF-8"?>
+<window id="mainWin" width="100%" height="100%"
+	apply="com.tp.training.ctrler.BrandEgridWithDetail">
+	<!--   畫面佈局會區分出west， center ， 所以引入borderlayout -->
+	<borderlayout width="100%" height="100%">
+		<west size="150px" splittable="true" collapsible="true">
+			<vlayout width="100%" height="100%">
+				<!--  查詢按鈕  +  查詢隱藏窗口  -->
+				<div align="center" style="padding-top:5px;">
+					<basebutton id="queryBtn" mode="query" width="90%"
+						height="10px" />
+					<window id="queryWin" mlkey="baselib.btn.query"
+						visible="false" width="350px" height="190px">
+						<vlayout width="100%" height="100%">
+							<qgrid id="qgrid" vflex="1">
+								<columns>
+									<column width="40%" />
+									<column width="60%" />
+								</columns>
+								<rows>
+									<row>
+										<coltitle
+											mlkey="traning.label.brandNo" />
+										<textbox fld="BRAND_NO"
+											upper="true" />
+									</row>
+									<row>
+										<coltitle
+											mlkey="traning.label.brandName" />
+										<textbox fld="BRAND_NAME" />
+									</row>
+								</rows>
+							</qgrid>
+							<div align="center">
+								<basebutton id="cancelQueryBtn"
+									mode="cancel" />
+								<basebutton id="confirmQueryBtn"
+									mode="ok" />
+							</div>
+						</vlayout>
+					</window>
+				</div>
+				<!--  listbox 用於存放查詢出的結果  -->
+				<listbox id="indexLbox" showRowNum="true" width="100%"
+					vflex="1" span="true">
+					<listhead>
+						<listheader width="40px" />
+						<listheader mlkey="traning.label.brandNo"
+							width="120px" sort="auto( BRAND_NO )" />
+						<listheader mlkey="traning.label.brandName"
+							width="120px" sort="auto( BRAND_NAME )" />
+					</listhead>
+					<template name="model">
+						<listitem>
+							<listcell />
+							<listcell>
+								<label fld="BRAND_NO" />
+							</listcell>
+							<listcell>
+								<label fld="BRAND_NAME" />
+							</listcell>
+						</listitem>
+					</template>
+				</listbox>
+			</vlayout>
+		</west>
+		<!--   中間資料區域   -->
+		<center>
+			<div hflex="1" vflex="1">
+				<!-- 主檔 -->
+				<panel height="auto">
+					<caption>
+						<label mlkey="traning.label.brand"
+							multiline="true" />
+						<editbuttons id="masterEbtns" btns="AMDSC">
+						</editbuttons>
+					</caption>
+					<panelchildren>
+						<egrid id="masterGrid"
+							boundBtns="${masterEbtns}" boundIndex="${indexLbox}" vflex="1">
+							<columns>
+								<column width="20%" />
+								<column width="30%" />
+								<column width="20%" />
+								<column width="30%" />
+							</columns>
+							<rows>
+								<row>
+									<coltitle
+										mlkey="traning.label.brandNo" />
+									<textbox fld="BRAND_NO" upper="true"
+										insertOnly="true" requiredForBean="true" />
+									<coltitle
+										mlkey="traning.label.brandCode" />
+									<textbox fld="BRAND_CODE"
+										upper="true" maxlength="2" insertOnly="true"
+										requiredForBean="true" />
+								</row>
+
+								<row>
+									<coltitle
+										mlkey="traning.label.brandName" />
+									<cell colspan="3">
+										<textbox fld="BRAND_NAME" />
+									</cell>
+								</row>
+								<row>
+									<coltitle
+										mlkey="traning.label.brandIsVip" />
+									<cell colspan="3">
+										<checkbox fld="IS_VIP" />
+									</cell>
+								</row>
+
+								<row>
+									<coltitle
+										mlkey="baselib.col.creator" />
+									<userlabel fld="CREATE_BY" />
+									<coltitle
+										mlkey="baselib.col.createDate" />
+									<label fld="CREATE_DATE" />
+								</row>
+								<row>
+									<coltitle
+										mlkey="baselib.col.modifier" />
+									<userlabel fld="MODIFY_BY" />
+									<coltitle
+										mlkey="baselib.col.modifyDate" />
+									<label fld="MODIFY_DATE" />
+								</row>
+							</rows>
+						</egrid>
+					</panelchildren>
+				</panel>
+				<!--  明細檔 -->
+				<panel vflex="1">
+					<caption>
+						<label mlkey="traning.label.season"
+							multiline="true" />
+						<editbuttons id="detailEbtns" btns="AMDSC">
+						</editbuttons>
+					</caption>
+
+					<panelchildren>
+						<elistbox id="detailLbox"
+							boundBtns="${detailEbtns}" span="true" master="${masterGrid}"
+							vflex="1" showRowNum="true" multiple="true" checkmark="true">
+							<listhead>
+								<listheader width="40px" />
+								<listheader width="100px"
+									sort="auto( SEASON_NO )" mlkey="traning.label.season" />
+								<listheader width="250px"
+									sort="auto( SEASON_DESC )" mlkey="traning.label.seasonDesc" />
+								<listheader width="100px"
+									sort="auto( MONTH_START )" mlkey="traning.label.seasonStartMM" />
+								<listheader width="100px"
+									sort="auto( MONTH_END )" mlkey="traning.label.seasonEndMM" />
+								<listheader width="200px"
+									sort="auto( INVALID_DATE )"
+									mlkey="traning.label.seasonInvalidDD" />
+								<listheader width="50px"
+									sort="auto( CREATE_BY )" mlkey="baselib.col.creator" />
+								<listheader width="115px"
+									sort="auto( CREATE_DATE )" mlkey="baselib.col.createDate" />
+								<listheader width="50px"
+									sort="auto( MODIFY_BY )" mlkey="baselib.col.modifier" />
+								<listheader width="115px"
+									sort="auto( MODIFY_DATE )" mlkey="baselib.col.modifyDate" />
+							</listhead>
+
+							<template name="model">
+								<listitem>
+									<listcell />
+
+									<listcell>
+										<textbox fld="SEASON_NO"
+											upper="true" requiredForBean="true" insertOnly="true" />
+									</listcell>
+
+									<listcell>
+										<textbox id="seasonDescTbox"
+											fld="SEASON_DESC" />
+									</listcell>
+
+									<listcell>
+										<spinner fld="MONTH_START"
+											constraint="min 1 max 12: between 1 to 12" />
+									</listcell>
+
+									<listcell>
+										<spinner fld="MONTH_END"
+											constraint="min 1 max 12: between 1 to 12" />
+									</listcell>
+
+									<listcell>
+										<datebox fld="INVALID_DATE" />
+									</listcell>
+									<listcell>
+										<userlabel fld="CREATE_BY" />
+									</listcell>
+									<listcell>
+										<label fld="CREATE_DATE" />
+									</listcell>
+									<listcell>
+										<userlabel fld="MODIFY_BY" />
+									</listcell>
+									<listcell>
+										<label fld="MODIFY_DATE" />
+									</listcell>
+								</listitem>
+							</template>
+						</elistbox>
+					</panelchildren>
+				</panel>
+
+
+			</div>
+		</center>
+	</borderlayout>
+</window>
