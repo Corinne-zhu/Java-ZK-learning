@@ -1,7 +1,8 @@
 <?page contentType="text/html;charset=UTF-8"?>
 <window id="mainWin" width="100%" height="100%"
 	apply="com.tp.training.ctrler.BrandMainElist">
-	<panel height="100%">
+	<!--  主檔 -->
+	<panel height="auto">
 		<caption>
 			<label mlkey="traning.label.brand" multiline="true" />
 			<!--    畫面增加查詢按鈕，提供彈出窗口查詢功能   -->
@@ -96,5 +97,17 @@
 				</template>
 			</elistbox>
 		</panelchildren>
+	</panel>
+
+	<!-- 明細檔 -->
+	<panel vflex="1">
+		<caption>
+			<label mlkey="traning.label.season" multiline="true" />
+			<editbuttons id="detailEbtns" btns="AMDSC"></editbuttons>
+		</caption>
+		
+		
+
+
 	</panel>
 </window>

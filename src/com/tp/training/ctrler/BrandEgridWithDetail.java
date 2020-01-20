@@ -53,8 +53,8 @@ public class BrandEgridWithDetail extends TrainingBaseComposer {
 		Listitem item = this.indexLbox.getFocusedItem();
 		MapBean bean = item.getValue();
 		this.masterGrid.setBean(bean);
-		//帶出明細檔的資料
-		String brandId= bean.get("BRAND_ID");
+		// 帶出明細檔的資料
+		String brandId = bean.get("BRAND_ID");
 		MapBeanResultList detailData = TrainingDAOFactory.getBrandseasonDao().queryByBrandID(brandId);
 		this.detailLbox.setModel(new ListModelList<>(detailData));
 	}
@@ -75,10 +75,8 @@ public class BrandEgridWithDetail extends TrainingBaseComposer {
 
 		@Override
 		protected String[][] getUkColNames() {
-			return  new String[][]{{ "BRAND_NO" }};
+			return new String[][] { { "BRAND_NO" } };
 		}
-
-
 	}
 
 	// 明細檔Detail
